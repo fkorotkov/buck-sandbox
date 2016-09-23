@@ -1,0 +1,15 @@
+[cxx]
+  default_platform = iphonesimulator-x86_64
+  cflags = -g -std=c11 -fmodules -fobjc-arc -D BUCK
+  combined_preprocess_and_compile = true
+
+[apple]
+  xctool_default_destination_specifier = platform=iOS Simulator,OS=latest
+  xctool_zip_target = //third-party/xctool:xctool
+  iphonesimulator10.0_toolchains_override = com.apple.dt.toolchain.Swift_2_3,com.apple.dt.toolchain.XcodeDefault
+
+[project]
+  ide = xcode
+  ignore = .buckd, \
+           .git, \
+           buck-out, \

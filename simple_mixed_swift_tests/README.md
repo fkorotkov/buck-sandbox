@@ -1,0 +1,1 @@
+A copy of `simple_only_swift_tests` plus `DummyTest.m` to have mixed files in `//simple_mixed_swift_tests/StringUtilTest:StringUtilTest` target.
