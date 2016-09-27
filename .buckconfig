@@ -6,7 +6,9 @@
 [apple]
   xctool_default_destination_specifier = platform=iOS Simulator,OS=latest
   xctool_zip_target = //third-party/xctool:xctool
-  iphonesimulator10.0_toolchains_override = com.apple.dt.toolchain.Swift_2_3,com.apple.dt.toolchain.XcodeDefault
+
+[swift]
+  version = 2.3
 
 [project]
   ide = xcode
