@@ -10,5 +10,6 @@ install:
 
 script:
   - buck --version
+  - buck build $(buck query '//...')
   - buck test --all
   - cat buck-out/log/buck-0.log
