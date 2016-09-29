@@ -1,0 +1,18 @@
+apple_library(
+  name = 'Bridging',
+  visibility = ['PUBLIC'],
+  bridging_header = 'Foo-Bridging-Header.h',
+  exported_headers = glob([
+    '*.h',
+    '**/*.h',
+  ], excludes = ['Foo-Bridging-Header.h']),
+  srcs = glob([
+    '*.m',
+    '**/*.m',
+    '*.swift',
+    '**/*.swift',
+  ]),
+  frameworks = [
+    '$SDKROOT/System/Library/Frameworks/Foundation.framework',
+  ],
+)

@@ -6,7 +6,8 @@ apple_test(
   },
   srcs = glob(['*.swift', '*.m']),
   deps = [
-  	'//simple_only_swift_tests/StringUtil:StringUtil'
+    '//complex_objc_swift:Bridging', # just to have more deps
+  	'//simple_only_swift_tests/StringUtil:StringUtil',
   ],
   frameworks = [
     '$SDKROOT/System/Library/Frameworks/Foundation.framework',
