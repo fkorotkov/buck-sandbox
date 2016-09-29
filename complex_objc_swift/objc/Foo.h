@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-#import "Version.h"
+#import "version/Version.h"
 
 @interface Foo: NSObject
 
