@@ -5,7 +5,7 @@ apple_library(
   exported_headers = glob([
     '*.h',
     '**/*.h',
-  ], excludes = ['Foo-Bridging-Header.h']),
+  ]),
   srcs = glob([
     '*.m',
     '**/*.m',
