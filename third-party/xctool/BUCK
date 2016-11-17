@@ -1,9 +1,6 @@
-# to build it:
-#   * clone https://github.com/facebook/xctool
-#   * run `buck build //:xctool-zip`
-#   * upload buck-out/gen/xctool-zip/xctool.zip
-export_file(
+remote_file(
 	name = 'xctool',
 	visibility = ['PUBLIC'],
-	src = 'xctool-c5d98ef3fee4467e163498fdeb59ac1cf38ec2b3.zip',
+	url = 'https://github.com/facebook/xctool/releases/download/0.3.1/xctool-v0.3.1.zip',
+	sha1 = '3f230c063f2a219605db17af479919f75e4e6926'
 )
