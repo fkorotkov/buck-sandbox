@@ -1,11 +1,11 @@
-#include "Bridging/Foo.h"
+#include "BridgingTest/Foo.h"
 
 @implementation Foo
 
 #pragma mark - Accessors
 
 - (NSString *)name {
-    return @"Fedor";
+    return @"World";
 }
 
 @end

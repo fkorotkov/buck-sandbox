@@ -1,1 +1,1 @@
-#import "Bridging/Foo.h"
+#import "BridgingTest/Foo.h"

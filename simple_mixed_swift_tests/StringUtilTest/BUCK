@@ -6,7 +6,6 @@ apple_test(
   },
   srcs = glob(['*.swift', '*.m']),
   deps = [
-  	'//complex_objc_swift:Bridging', # just to have more deps
   	'//simple_mixed_swift_tests/StringUtil:StringUtil',
   ],
   frameworks = [

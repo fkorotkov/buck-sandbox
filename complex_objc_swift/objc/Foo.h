@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-#import "Bridging/Version.h"
+#import "BridgingTest/Version.h"
 
 @interface Foo: NSObject
 
