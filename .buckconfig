@@ -1,3 +1,6 @@
+[download]
+  in_build = true
+
 [cxx]
   default_platform = iphonesimulator-x86_64
   cflags = -g -std=c11 -fmodules -fobjc-arc -D BUCK
