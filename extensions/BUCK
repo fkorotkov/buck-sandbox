@@ -1,0 +1,8 @@
+swift_library(
+  name = 'extensions',
+  visibility = ['PUBLIC'],
+  srcs = glob(['*.swift']),
+  frameworks = [
+    '$SDKROOT/System/Library/Frameworks/Foundation.framework',
+  ],
+)
