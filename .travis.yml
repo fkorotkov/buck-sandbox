@@ -3,11 +3,8 @@ language: objective-c
 osx_image: xcode8
 
 install:
-  - brew update
-  - brew tap facebook/fb
-  - brew install --HEAD buck
+  - ./buckw --version
 
 script:
-  - buck --version
-  - buck test --all
-  - cat buck-out/log/buck-0.log
+  - ./buckw build //...
+  - ./buckw test --all

@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+set -e
+
+WORKING_DIR=$(pwd)
+
+red=`tput setab 1 2>/dev/null || true`
+yellow=`tput setab 3 2>/dev/null || true`
+green=`tput setab 2 2>/dev/null || true`
+blue=`tput setab 4 2>/dev/null || true`
+reset=`tput sgr0 2>/dev/null || true`
+bold=`tput bold 2>/dev/null || true`
+
+die ( ) {
+    echo
+    echo "${bold}${red} $* ${reset}"
+    echo
+    exit 1
+}
+
+info ( ) {
+    echo "${bold}${blue} $* ${reset}"
+}
+
+warn ( ) {
+    echo "${bold}${yellow} $* ${reset}"
+}
+
+success ( ) {
+    echo
+    echo "${bold}${green} $* ${reset}"
+    echo
+}
+
+DEFAULT_BUCK_REPO="https://github.com/facebook/buck.git"
+DEFAULT_BUCK_INSTALL_DIR="$HOME/.cache/buck"
+BUCK_VERSION=$(cat .buckversion)
+
+checkAntInstalled ( ) {
+    command -v ant >/dev/null 2>&1 || \
+        (warn "Ant is not installed! Installing using brew..." && brew install ant)
+}
+
+checkBuckBinary ( ) {
+    if [[ -z "$BUCK_HOME" ]]; then
+        BUCK_HOME=$DEFAULT_BUCK_INSTALL_DIR
+    fi
+    BUCK_LOCATION="$BUCK_HOME/$BUCK_VERSION"
+    BUCK_BINARY="$BUCK_LOCATION/bin/buck"
+    if [[ ! -f "$BUCK_BINARY" ]] ; then
+        warn "BUCK NOT FOUND FOR $BUCK_VERSION VERSION. INSTALLING BUCK..."
+        git clone $DEFAULT_BUCK_REPO $BUCK_LOCATION
+
+        cd $BUCK_LOCATION
+        git reset --hard $BUCK_VERSION
+        ant
+        cd $WORKING_DIR
+    fi
+}
+
+checkAntInstalled
+checkBuckBinary
+
+# Invoke buck binary with arguments
+exec "$BUCK_BINARY" "$@"
