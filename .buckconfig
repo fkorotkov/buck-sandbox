@@ -18,3 +18,15 @@
   ignore = .buckd, \
            .git, \
            buck-out, \
+
+[cache]
+    mode = dir
+    dir_cache_names = warm, local
+
+[cache#warm]
+    dir = prefetched_cache
+    dir_mode = readwrite
+
+[cache#local]
+    dir = buck_cache
+    dir_mode = readwrite
